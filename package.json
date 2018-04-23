@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@types/markerclustererplus": "^2.1.33",
+    "availity-reactstrap-validation": "^2.0.2",
     "bootstrap": "^4.1.0",
     "chart.js": "^2.7.2",
     "jquery": "^3.3.1",
@@ -13,7 +14,7 @@
     "react-dom": "^16.3.2",
     "react-fontawesome": "^1.6.1",
     "react-google-maps": "^9.4.5",
-    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
     "reactstrap": "^5.0.0-beta.3"
   },

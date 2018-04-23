@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-
-class Register extends Component {
+class NotFound extends Component {
     render() {
         return (
             <div>
-                <h1>Register</h1>
+               404 
             </div>
         );
     }
 }
 
-export default Register;
+export default  NotFound;
