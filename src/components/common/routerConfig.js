@@ -4,16 +4,22 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 //add react bootstrap
 import { Form } from "reactstrap";
 //add my components
-
+import * as routePath from "../../constants/route";
 import Login from '../users/login';
 import Register from "../users/register";
 import NotFound from "./notFound"
+import Home from "../home"
 
 const routes = [
     {
-        path: "/",
+        path: routePath.SIGN_IN,
         exact: true,
         main: () => <Login />
+    },
+    {
+        path: routePath.HOME,
+        exact: true,
+        main: () => <Home />
     }
 ]
 

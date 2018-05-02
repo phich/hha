@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { FormGroup,Form ,Button,InputGroupText,Input,Label,Col,Row,CardImg} from "reactstrap";
 import logo from "../../assets/logo.png"
 import {Redirect} from "react-router-dom";
-import firebaseApp from "../../constants/firebaseConfig";
+import auth from "../../firebase/index";
+import * as route from '../../constants/route'
 import { AppToasterSuccess,AppToasterError } from "../common/toaster";
+import {CheckLogin} from "../common/user";
 
 class Login extends Component {
     constructor(props){
@@ -12,7 +14,7 @@ class Login extends Component {
        
     }
     componentWillMount(){
-        console.log("componentWillMount");
+            
     }
  
     onChange(e){
@@ -20,15 +22,17 @@ class Login extends Component {
     }
     onLogin(event){
         event.preventDefault();
-        firebaseApp.auth().signInWithEmailAndPassword(this.state.userName,this.state.password).then(function(){
-            AppToasterSuccess.show("Login success")
+        auth.signInWithEmailAndPassword(this.state.userName,this.state.password).then(function(){
+            AppToasterSuccess.show({message:"Login success"})
+            this.setState({redirect:true})
         }).catch(function(error) {
-            AppToasterError.show({ message:error.message,icon :"warning-sign",    className: "pt-intent-danger", })
+            AppToasterError.show({ message:error.message,icon :"warning-sign",
+            className: "pt-intent-danger", })
           });
     }
     render() {
         if(this.state.redirect === true){
-            return <Redirect to='/' ></Redirect>
+            return <Redirect to={route.HOME} ></Redirect>
         }
         return (
             <Form className="form-signin" onSubmit= {(event)=>this.onLogin(event)}>
